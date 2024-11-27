@@ -12,12 +12,6 @@ user = os.getenv('user')
 password = os.getenv('password')
 port = os.getenv('port')
 
-
-print("Host:", host)
-print("Database:", database)
-print("User:", user)
-print("Password:", password)  # Apenas para verificação, remova depois
-print("Port:", port)
 conexao = psycopg2.connect(host= host, database = database, user = user, password = password, port = port)
 
 
