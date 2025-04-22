@@ -1,0 +1,32 @@
+É utilizado juntamente com o pandas
+A ideia é agrupar os dados de um dataframe de acordo com alguma coluna
+-------------------------------------------------------------------------
+EX de sintaxe: 
+estatistica_clima = dataframe.groupby('coluna_a_ser_agrupada')['coluna_com_dados_para_estatisticas'].describe()
+
+Além do describe é possivel utilizar outras funcoes de agregacao como sum, mean, count, median, min, max, std e var
+
+Para agrupar de modo decrescente:
+estatistica_clima = dataframe.groupby('coluna_a_ser_agrupada')['coluna_com_dados_para_estatisticas'].sum().sort_values(ascending=False)
+
+Crianndo um dataframe com mais de uma funcao de agregacao:
+estatistica_clima = dataframe.groupby('coluna_a_ser_agrupada')['coluna_com_dados_para_estatisticas'].agg(['mean', 'std', 'min', 'max'])
+
+Agrupando por mais de uma coluna:
+estatistica_clima = dataframe.groupby(['coluna_a_ser_agrupada', 'outra_coluna_a_ser_agrupada'])['coluna_com_dados_para_estatisticas'].mean()
+
+Para inverter a visualizacao do dataframe utilizamos o unstack:
+estatistica_clima = dataframe.groupbyI(['coluna_a_ser_agrupada', 'outra_coluna_a_ser_agrupada'])['coluna_com_dados_para_estatisticas'].mean().unstack()
+
+Para aplicar diferentes funcoes de agregacao em diferentes colunas deve criar um dicionario:
+estatistica_clima = dataframe.groupbyI('coluna_a_ser_agrupada').agg({'coluna_com_dados_para_estatisticas': 'mean', 'outra_coluna_com_dados_para_estatisticas': 'sum'})
+ou entao agregacao = {
+    'contagem': 'sum',
+    'temperatura': 'mean',
+}
+e no .agg() passar o dicionario:
+estatistica_clima = dataframe.groupbyI('coluna_a_ser_agrupada').agg(agregacao)
+
+Para visualizar os dados agrupados em um grafico de barras:
+estatistica_clima.plot(kind='bar')
+-------------------------------------------------------------------------
