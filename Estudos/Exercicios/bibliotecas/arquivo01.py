@@ -6,7 +6,7 @@ a) Crie/abra um arquivo texto de nome “arq.txt”
 b) Permita que o usuário grave diversos caracteres nesse arquivo, até que o usuário entre com o caractere
 “0”.
 c) Feche o arquivo
-d) Abra, leia o arquivo e escreva na tela todos os caracteres armazenados.
+d) Abra, leia o arquivo e escreva na tela todos os caracteres armazenados
 '''
 with open('arq.txt', 'a') as arquivo:
     while True:
