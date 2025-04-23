@@ -1,0 +1,34 @@
+Criacao de tabelas dinamicas com esse metodo
+
+sintaxe:
+Ex:
+pivot_clima = pd.pivot_table(df, values='contagem', index = 'clima')
+values = valor que queremos aplicar funcao  (por padrao ja calcula a media) 
+index = dados agrupados por esse parametro
+
+--------------------------------------------------------------------------------
+Para usar outras funcoes para caclular a coluna desejada se utiliza o parametro "aggfunc"
+pivot_clima = pd.pivot_table(df, values='contagem', index = 'clima', aggfunc = 'sum') -> neste caso somaria a contagem
+
+-------------------------------------------------------------------------------------------------------------------------
+Para adicionar outra coluna de agrupamento passa-se uma lista com as colunas dejadas no parametro index
+pivot_clima = pd.pivot_table(df, values='contagem', index = ['clima', 'estacao'], aggfunc = 'sum')
+
+--------------------------------------------------------------------------------
+Para melhorar essa visualizacao, podemos adicionar o parametro "columns" para criar uma nova coluna com os dados agrupados por esse parametro
+pivot_clima = pd.pivot_table(df, values='contagem', index = 'estacao', columns = 'clima', aggfunc = 'sum')
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Aplicando diferentes funcoes para diferentes colunas, podemos passar um dicionario no parametro aggfunc
+pivot_clima = pd.pivot_table(df, values=['contagem', 'temperatura'], index = ['estacao', 'clima'], aggfunc = {'contagem': 'sum', 'temperatura': 'mean'})
+OBS: todos os valores passados em values devem ser passados no dicionario, mesmo que a funcao seja a mesma para todos os valores
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+Adicionando valores gerais para linhas e colunas, podemos usar o parametro margins = True
+pivot_clima = pd.pivot_table(df, values='contagem', index = 'estacao', columns='clima', aggfunc = {'contagem': 'sum'}, margins = True, 
+margins_name = 'Total', fill_value = 0)
+OBS: o fill_value serve para preencher os valores nulos com 0, caso contrario ele preenche com NaN e o margins_name serve para dar um nome a linha e coluna que representa o total
+OBS2: o margins_name utiliza da funcao que esta sendo passada entao neste caso esata somando
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
