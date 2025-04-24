@@ -1,0 +1,41 @@
+Para criar outro dataframe com condicionais ex:
+df_west = df[df['Regiao'] == 'West']
+
+-------------------------------------------------------
+
+Somar alguma coluna desse novo df
+sales_west = df_west['Vendas'].sum()
+
+---------------------------------------------------------
+
+Criar uma nova coluna no df com condicional
+df['Desconto aplicado'] = df['Desconto'] > 0
+
+----------------------------------------------------------
+
+Cria uma nova coluna utilizando calculo matematico
+df['Lucro_por_unidade'] = df['Lucro'] / df['Quantidade']
+
+-----------------------------------------------------------
+
+Criar uma funcao para categorizar o lucro
+def categorize_profit(lucro):
+    if lucro > 50:
+        return 'Alta margem'
+    elif lucro > 0:
+        return 'Margem positiva'
+    else:
+        return 'Prjuizo'
+
+Para aplcar a funcao em uma nova coluna
+df['Categoria_Lucro'] = df['Lucro'].apply(categorize_profit)
+
+-----------------------------------------------------------------
+
+calculando a margem de lucro como porcentagem
+df['Margem_Lucro(%)'] = df.apply(lambda x: x(['Lucro'] / x['Vendas']) * 100, axis=1)
+
+-----------------------------------------------------------------------------------------
+
+df['Nivel Vendas'] = df['Vendas'].apply(lambda x: 'Alto' if x > 500 else 'Baixo')
+
