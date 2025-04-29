@@ -1,0 +1,28 @@
+Para criar um grafico de colunas
+sns.barplot(x='dado', y='dado', data=df) -> esse dado vem do dataframe criado anteriormente
+
+----------------------------------------------------------------------------------------------
+grafico de colunas
+sns.countplot(x='coluna_df', data=df)
+
+Para oordenar esse grafico pode se fazer da seguinte forma:
+variavel = df['coluna'].value_counts()
+sns.countplot(x='coluna', data = df, order = variavel.index)
+
+Para agrupar a contagem hue
+sns.countplot(x='coluna', data = df, order = variavel.index, hue='coluna')
+
+------------------------------------------------------------------------------------------------
+Quando a quantidade de barras dificulta a visualizacao deve se utilizar o grafico de barras para isso basta inverter passando o y primeiro que o x nos parametros
+sns.countplot(y='coluna_df',x = 'col' data=df)
+para ordenar é basta criar uma variavel com o groupby e ordenando e passando essa variavel no parametro data
+
+-----------------------------------------------------------------------------------------------------
+Para tempo é recomendado o uso de grafico de linhas
+para isso deve se transformar, caso necessario, a coluna em datetime
+ex:
+df['data'] = pd.to_datetime(df['data'], format = '%Y-%m-%d')
+criando a variavel:
+vendas = df.groupby('data')['valor_total'].sum().reset_index()
+Criando o grafico
+sns.lineplot (x='data', y='valor_total', data=vendas)

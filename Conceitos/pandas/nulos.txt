@@ -1,0 +1,33 @@
+Dados nulos representam informacoes faltantes ou simplesmente nao existem
+
+Como identificar dados nulos
+Pode se utilizar o isnull() -> df.isnull() e retorna True onde o dado é nulo
+
+Existem outras duas formas de visualizar os dados nulos, uma delas é passando a coluna especifica
+-> df['Coluna'].isnull()
+E também é possivel retornar as linhas onde possui o valor nulo
+-> df[df['Coluna'].isnull()]
+
+--------------------------------------------------------------------------------------------------------
+é possivel tambe utilizar o df.info()
+
+----------------------------------------
+Para saber o somatorio dos valores nulos podese utilizar o df.isnull().sum()
+aqui ele retorna a quantidade de nulo por coluna, caso queira saber o numero total, deve somar mais uma vez ->df.isnull().sum().sum()
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+*Para preencher esses dados nulos* pode se usar o df.fillna(0) -> Aqui preencheria os valores NaN com 0
+
+É possivel tambem passar o fillna para uma coluna especifica -> df['Quantidade de compras'].fillna(0)
+
+---------------------------------------------------------------------------------------------------------
+Uma outra forma de preencher os dados nulos é utilizando o df.ffill() -> ele preenche o NaN com o valor anterior a ele na coluna
+E o df.bffill() faz o inverso, preenche com o valor posterior ao NaN
+
+Outra forma é utilizando o df.interpolate() -> que é uma tecnicna matematica, mas aqui no pandas é calculado através linearidade
+
+-------------------------------------------------------------------------------------------------------------------------------------
+Um outro método de lidar com os NaNs é simplesmente cortalos utilizando o df.dropna() -> Deixando apenas as linhas sem valores NaN
+Caso prefira deixar a coluna basta adicionar o parametro df.dropna(axis=1) -> assim ele deixa apenas as colunas que nao possuem NaN
+
+Para deixar ainda mais especifico e cortar apenas as linhas com valores nulos especificados serao cortados -> df.dropna(subset = ['Coluna'])

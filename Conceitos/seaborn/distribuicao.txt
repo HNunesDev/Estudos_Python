@@ -1,0 +1,19 @@
+Criando o grafico
+
+histograma
+sns.histplot(df['coluna'], bins=10) ->bins é intervalo dos dados
+para adicionar a linha kde basta passar o parametro como true
+
+existe tambem o kdeplot
+sns.kdeplot(df['coluna'], fill=true)
+
+Caso queira ver os dados com granualidade usar o histograma, caso queira ver de forma melhor os intervalos usar o histograma
+
+Boxplot
+sns.boxplot(y='coluna', data=df)
+é possivel tambem passar um dado de acordo com outro, basta passar a coluna no x e o outro no y
+
+Violinplot
+sns.violinplot(x='coluna x', y='coluna y', data=df)
+
+É possivel também customizar os graficos com outras propriedades
