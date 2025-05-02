@@ -1,0 +1,18 @@
+Tema
+sns.set_theme()
+
+----------------
+grafico de barras
+sns.barplot(data=df, x=df.index, y='coluna') -> esse é o grafico padrao de barras
+sns.barplot(data=df, y=df.index, x='coluna', orient='h') -> esse é grafico de barras laterais
+
+----------------------------------------------------------------------------------------------
+Customizando
+ax = sns.barplot(data=df, y=df.index, x='coluna', orient='h')
+ax.set(title='Texto desejado', xlabel'texto', ylabel='texto ou vazio')
+
+Para trocar a cor das barras utilizase o palette=palette
+ax = sns.barplot(data=df, y=df.index, x='coluna', orient='h', palette=paleta desejada)
+
+Retirando as linhas do topo e direita
+sns.despine()

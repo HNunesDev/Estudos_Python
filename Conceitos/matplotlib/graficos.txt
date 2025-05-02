@@ -1,0 +1,92 @@
+para fazer um grafico de linhas usamos o plot:
+plt.plot(df['eixoX'], df['EixoY'])
+
+--------------------------------------------------
+Para alterar os rotulos do eixo x pode usar o xticks
+plt.xticks(['Lista','com','valores','desejados'])
+
+É possivel fazer o mesmo mas para o eixo Y yticks
+
+-----------------------------------------------------
+Para exibir apenas o grafico sem infos de espaço de memoria e coisas do tipo utiliza o show
+plt.show() -> nenhum codigo apos o plt show é executado
+
+-----------------------------------------------------------------------------------------------
+É possivel alterar o tamanho do grafico gerado com o figure e passando o parametro figsize
+plt.figure(figsize=(8,4)) -> o tamanho é em polegada sendo o primeiro valor a largura e o segundo altura
+
+---------------------------------------------------------------------------------------------------------
+Para adicionar um titulo ao grafico utilizase plt.title('Nome desejado')
+Para adicionar rotulos ao eixo x e y utilizase plt.xlabel('nome'), plt.ylabel('nome')
+
+-------------------------------------------------------------------------------------------------------------
+É possivel criar uma figura utilizando subplot e o correto é utilizar duas variaveis, EX:
+fig, ax = plt.subplots(figsize=(8,4)) -> Só com isso ja cria a figura
+
+Existe tambem como realizar os mesmos tratamentos anteriores agora:
+ax.plot(df['eixoX'], df['EixoY'])
+
+para alterar o rotulo do eixo x
+ax.axis.set_major_locator(plt.MultipleLocator(5)) -> Gera o intervalo de 5 em 5 anos (exemplo do curso)
+
+Titulo no grafico
+ax.set_title('Nome desejado\nIntervalo ano')-> É possivel quebrar linhas com o \n
+
+Rotulos x e Y
+ax.set_xlabel('nome')
+ax.set_ylabel('nome')
+
+-----------------------------------------------------------------------------------------------------------------
+Colocando dois graficos na mesma figura
+fig, axs = plt.subplots(1,2, figsize(15,5)) -> primeiro parametro é a quantidade de linha. Já o segundo é a quantidade de subplots na linha
+
+Para criar o primeiro e fazer alteraçoes ao primeiro utiliza o indice
+axs[0].plot(df['eixoX'], df['EixoY'], lw=3, collor='g') ->lw tamanho em pixel da linha do grafico. collor torna a linha do grafico verde
+axs[0].set_title('Nome desejado\nIntervalo ano', fontsize=12, loc='left') -> tamanho da fonte e local do texto
+axs[0].set_xlabel('nome', labelsize=8) ->determina tamanho da fonte 
+axs[0].set_ylabel('nome')
+
+Segundo grafico
+axs[1].boxplot(df['dado'])
+
+Para adicionar um grid aos graficos utiliza a funcao axis[1].grid() -> exemplo
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Configuracoes para subplots
+(considerar figura ja criada)
+
+fig.subplots_adjust(hspace=0.5, wspace=0.3) -> espaço eixo horizontal e vetical
+
+configurando label x de todos de uma vez:
+for ax in axs axs.flat:
+    ax.xaxis.set_major_locator(plt.MultipleLocator(5)) -> é possivel usar essa forma de loop para fazer as alteracoes que fizemos anteriormente
+
+para setar o eixo y para todos graficos a mesma scala pode se fazer assim:
+ymin = 0
+ymax = 7000
+for ax in axs.ravel():
+    ax.set_ylim(ymin, ymax)
+
+Titulo geral:
+fig.suptitle('Texto desejado')
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+para criar o grafico de barras utiliza o .bar e barras laterais é o .brah
+
+quando necessario ordenar por valores, deve se criar uma variavel com os valores ja organizados e passar essa variavel na hora de criar o grafico
+
+fazendo loop para registrar o valor total de cada barra:
+for i, v in enumerate(df['coluna com valor']):
+    ax.text(v +20, i, str(v), color='black', fontsize='10', ha='left', va='center')
+
+algumas outras Configuracoes
+ax.set_frame_on(False) -> exclui as margens do grafico
+ax.get_xaxis().set_visible(False) -> exclui o eixo x
+ax.tick_params(axis='both', wich='both', lenght=0) -> retira os ticks dos itens do grafico (-)
+
+Para retirar as barras do topo e da direita:
+ax.spines['right'].set_visible(False)
+ax.spines['top'].set_visible(False)
+
+Para salvar a imagem
+fig.savefig('Nome do arquivo.extensao(recomendado utilizar png), transparent=False ->nao deixa o fundo transparente, dpi=300 -> resolucao, bbox_inches='tight'-> limite da imagem')

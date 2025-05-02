@@ -1,0 +1,25 @@
+Essa biblioteca permite criar graficos interativos
+
+vou usar o exemplo do curso para explicar um pouco a sintaxe 
+fig = px.line(dados_brasil, x='ano', y='imigrantes', title='Imigraçao do brasil para o canada')
+
+fig.update_layout(widht = 1000, height=500, xaxis{'tickangle': -45}, xaxis_title='Ano', yaxis_title='numero de imigrantes,
+    font_family='Arial', font_size=14, font_color='gray', title_font_color='black', title_font_size=22, ') -> lartura e largura. xaxis muda em graus a rotacao da legenda
+
+Alterar cor da linha
+fig.update_traces(line_color='green', line_width = 4)
+fig.show()
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Segundo exemplo usando todos paises da america do sul
+
+america_sul_final = df
+fig = px.line(america_sul_final, x=america_sul_final.index, y=america_sul_final.columns,color='País',
+     title='Imigraçao dos paises da america do sul para o canada')
+
+fig.update_layout(xaxis={'tickangle': -45}, xaxis_title='Ano', yaxis_title='Número de imigrantes')
+
+----------------------------------------------------------------------------------------------------------------
+Salvando em html para poder abrir em uma pagina web ou implementar em um site
+
+fig.write_html('Imigracao_america_sul.html')
