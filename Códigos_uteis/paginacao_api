@@ -1,0 +1,45 @@
+import time
+import requests
+import pandas as pd
+
+def extract_data_old(bearer_token=None): #->token de acesso caso necessario passar no header
+    base_url = "https://api.example.com/data"
+    page = 1
+    page_size = 30
+    all_data = []
+    max_retries = 3 # Quantidade de tentativas em caso de erro
+
+    post_headers = {} # -> Headers
+    while True:
+        url = f"{base_url}?page={page}&pageSize={page_size}&startDate=2025-01-07&endDate=2025-05-07&flowType=O"
+        retry_count = 0
+
+        while retry_count < max_retries:
+            try:
+                response = requests.get(url, headers=post_headers, timeout=60) #Tempo antes de dar timeout
+                response.raise_for_status()
+                data_json = response.json()
+                data = data_json.get("customerOrder", [])
+
+                if not data:
+                    print(f"Página {page} não retornou dados. Fim da extração.")
+                    return pd.DataFrame(all_data) if all_data else pd.DataFrame()
+
+                all_data.extend(data)
+                print(f"Página {page} lida com {len(data)} registros.")
+
+                if len(data) < page_size:
+                    print("Última página alcançada.")
+                    return pd.DataFrame(all_data)
+
+                page += 1
+                break
+
+            except requests.exceptions.RequestException as e:
+                retry_count += 1
+                print(f"Erro na requisição da página {page}: {e}. Tentativa {retry_count} de {max_retries}.")
+                time.sleep(2)
+
+                if retry_count == max_retries:
+                    print(f"Falha ao tentar {max_retries} vezes na página {page}. Abortando.")
+                    return pd.DataFrame(all_data) if all_data else pd.DataFrame()
