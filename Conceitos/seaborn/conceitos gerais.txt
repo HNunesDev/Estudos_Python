@@ -38,5 +38,10 @@ plt.figure(figsize=(8,16)) -> por exemplo neste caso o proximo grafico plotado a
 ----------------------------------------------------------------
 Desvio padrao é calculado a partir de cada numero que compos a media de acordo com a media quanto mais maior o numero é porque mais desvio existe
 
+---------------------------------------------------------------------
+Hue é utilizado como parametro para categorizar as barras no eixo x
+EX: se o grafico diz numero de mortes por estado, caso utilize o hue = origem ele criaria uma barra para cada estado mostrando o numero de morte de brasileiros e imigrantes
+*o parametro passado precisa ser uma coluna do dataframe
+
 
 
