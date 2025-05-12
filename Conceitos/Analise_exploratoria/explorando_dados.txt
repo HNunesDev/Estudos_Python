@@ -1,0 +1,72 @@
+No exemplo estudado temos um arquivo csv, lido com pandas entao vou referenciar como df
+
+df.shape -> mostra a quantidade de linhasXcolunas
+
+df.columns -> tras as colunas presentes no dataframe
+para alterar as colunas basta -> df.columns = ["lista", "com", "nomes"]
+
+df.head -> tras as 5 primeiras linhas 
+
+para criar uma serie (é apenas uma linha de dados) -> nome['colunaDesejada']
+para mostrar os valores registrados podemos utilizar o nome['colunaDesejada'].unique()
+para saber a quantidade para cada um dos registros no exemplo das notas -> df["nota"].value_counts()
+media -> df["nota"].mean( )
+
+Para visualizar os dados e poder analiser melhor podemos plotar graficos
+neste caso do exemplo ele plota um histograma para ver a disposicao das notas
+df.['nota'].plot(kind='hist')
+
+Para ver conceitos gerais ele utilizou o describe
+df.['nota'].describe
+
+------------------------------------
+no curso tem um outro csv com o nome dos filmes e infos afim
+para pesquisar no df por uma condicao
+notas.query("filmesID==1")
+
+Para saber a media das notas de um filme especifico
+notas.query("filmesID==1")['nota'].mean()
+
+Para agrupar pela nota e tirar a media de todos os filmes podese utilizar o groupby
+nota.groupby('filmesID')['nota'].mean() -> Isso tetorna a media da nota de todos os filmes id 
+
+--------------------------------------
+Diferença entre variavel categorica e quantitativa
+categorica no exemplo de notas de cinema por exemplo: Existia um numero finito de opçoes para serem escolhidas(categorias)
+quantitativa ja o orçamento do filme nao pertence a uma categoria pois é um valor e pode ser qualquer valor, nao existe opçoes a serem selecionadas. E por poder assumir "qualquer" valor ela é quantitativa continua
+
+----------------------
+
+Variáveis Qualitativas
+Também conhecidas como categóricas, representam características que não podem ser medidas numericamente, mas podem ser categorizadas, ou seja, representam uma classificação. Estas variáveis podem ser nominais ou ordinais.
+Variáveis Qualitativas
+
+Nomianl: Uma variável qualitativa nominal é aquela que classifica os elementos em classes ou categorias em relação ao tipo do dado representado. Ela não possui uma relação de grandeza ou ordem dos dados
+Exemplos: Nome de produtos, departamentos, métodos de pagamento ou variáveis geográficas, como, cidade, estado e região.
+
+Ordinal: Uma variável qualitativa ordinal também é aquela que classifica os elementos em classes ou categorias, porém existe uma ordem natural ou hierárquica entre as categorias.
+Exemplos: grau de escolaridade (ensino infantil, ensino fundamental, ensino médio), nível de satisfação do cliente (insatisfeito, neutro e satisfeito) e nível socioeconômico.
+
+------------------------
+
+variáveis Quantitativas
+Representam medidas numéricas ou quantidades observáveis que podem ser expressas em números. Elas são resultantes de contagens (conjunto finito de valores) ou mensurações (conjunto infinito de valores). Estas variáveis podem ser discretas ou contínuas.
+
+Discreta
+Uma variável quantitativa discreta é aquela que apresenta valores que podem ser contados e geralmente inteiros. 
+Exemplos: quantidade de produto vendido, número de cômodos em uma casa e idade.
+
+Contínua
+Uma variável quantitativa contínua é aquela que apresenta valores que podem assumir qualquer valor dentro de um intervalo específico e geralmente são expressos como números reais.
+Exemplos: peso de um produto, altura de uma pessoa, tempo e temperatura de um experimento.
+
+------------------------
+Somando os valores de uma parte especifica em comparaçao com o todo
+Exemplo utilizado no curso com base no df sobre filmes:
+
+total_por_lingua = tmdb["lingua original"].value_counts()
+total_geral = total_por_lingua.sum()
+total_ingles = total_por_lingua.loc['en']
+total_resto = total_geral - total_ingles
+
+------------------------

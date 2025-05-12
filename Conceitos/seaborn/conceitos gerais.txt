@@ -16,3 +16,27 @@ ax = sns.barplot(data=df, y=df.index, x='coluna', orient='h', palette=paleta des
 
 Retirando as linhas do topo e direita
 sns.despine()
+
+----------------------------------------------------------------------------------------------------
+Existe uma forma de plotar o grafico de barras ja somando o total de apariçoes daqeuele dado
+sns.countplot(data=df, x='Coluna desejada') -> exemplo de linguas de um filme, somaria quantos filmes sao da lingua inglesa, espanhola etc
+
+---------------------------------------------------------------
+
+Para colorir as barras passase o parametro palette:
+sns.countplot(x='coluna', data = df, order = variavel.index, palette='mako', hue='coluna', hue_order='variavel.index')
+
+para a coloraçao da paleta seguir o mesmo padrao do hue de organizaçao, é preciso passar o parametro hue_order
+sns.countplot(x='coluna', data = df, order = variavel.index, hue='coluna', hue_order='variavel.index')
+
+Caso queira passar o valor do grafico ao inves de ser valor absoluto seja porcentagem do total utilizase o parametro stat
+sns.countplot(x='coluna', data = df, order = variavel.index, palette='mako', hue='coluna', hue_order='variavel.index', stat='percent')
+
+Para trocar o tamanho do grafico é necessario utilizar junto do matplotlib e usar o figure e passar as polegadas como parametro
+plt.figure(figsize=(8,16)) -> por exemplo neste caso o proximo grafico plotado a partir dessa linha teria um tamanho difernte dos demais
+
+----------------------------------------------------------------
+Desvio padrao é calculado a partir de cada numero que compos a media de acordo com a media quanto mais maior o numero é porque mais desvio existe
+
+
+

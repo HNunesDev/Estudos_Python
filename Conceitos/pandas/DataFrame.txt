@@ -36,6 +36,9 @@ calculando a margem de lucro como porcentagem
 df['Margem_Lucro(%)'] = df.apply(lambda x: x(['Lucro'] / x['Vendas']) * 100, axis=1)
 
 -----------------------------------------------------------------------------------------
-
 df['Nivel Vendas'] = df['Vendas'].apply(lambda x: 'Alto' if x > 500 else 'Baixo')
+
+-----------------------------------------------------------------------------------------
+Existe um método em pandas que se chama query ele serve para fazer consultas de maneira bem parecida com SQL
+vendas.query('valor > 10 and metodo_pagamento != "Dinheiro" ')
 
