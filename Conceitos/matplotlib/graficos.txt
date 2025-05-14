@@ -70,7 +70,34 @@ for ax in axs.ravel():
 Titulo geral:
 fig.suptitle('Texto desejado')
 
--------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Exemplo de utilizacao do subplot comparando tres graficos de hisograma
+#Primeiro
+plt.subplot(figsize=(15,5))
+plt.subplot(131)
+plt.title('Titulo grafico 1')
+plt.xlabel('nome x')
+plt.ylabel('nome y')
+plt.hist(dado_primeiro, bins=30, alpha=0.7, color='blue')
+
+#Segundo
+plt.subplot(132)
+plt.hist(dado_segundo, bins=30, alpha=0.7, color='purple')
+plt.title('Titulo grafico 2')
+plt.xlabel('nome x 2')
+
+#Terceiro
+plt.subplot(133)
+plt.hist(dado_terceiro, bins=30, alpha=0.7, color='green')
+plt.title('Titulo grafico 2')
+plt.xlabel('nome x 2')
+
+plt.show()
+
+--------------------------------------------------------------------
+Para plotar linhas dentro do grafico utiliza o plt.axvline(media_dado + 3*EP, color='cor') ->Primeiro parametro é apenas um exemplo que pode utilizar calculo nele
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
 para criar o grafico de barras utiliza o .bar e barras laterais é o .brah
 
 quando necessario ordenar por valores, deve se criar uma variavel com os valores ja organizados e passar essa variavel na hora de criar o grafico
