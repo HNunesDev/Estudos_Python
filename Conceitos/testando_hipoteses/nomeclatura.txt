@@ -1,0 +1,50 @@
+Nomeclaturas utilizadas em estatisticas e testes em geral
+
+Termos
+
+Média amostral (x̄) → Média dos valores observados na amostra. É uma estimativa da média populacional.
+
+Média populacional (μ) → Valor verdadeiro da média da população (geralmente desconhecido).
+
+Nível de confiança (ex: 95%) → Probabilidade de que o intervalo de confiança contenha o valor real de μ.
+→ Exemplo: 95% de confiança → 95% de chance do intervalo conter a média populacional.
+
+Intervalo de confiança (IC) → Faixa de valores dentro da qual a média populacional é esperada, com base na amostra.
+→ Mesmo se diferente da média amostral, está dentro de um limite aceitável com base no nível de confiança.
+
+Hipótese Nula (H₀) → Hipótese inicial ou padrão a ser testada. Geralmente representa "ausência de efeito" ou "sem diferença".
+→ Ex: μ = 50
+
+Hipótese Alternativa (H₁) → Hipótese contrária à nula. Representa "existe efeito" ou "há diferença".
+→ Ex: μ ≠ 50
+
+Valor de P (p-valor) → Probabilidade de observar os dados obtidos (ou mais extremos) assumindo que H₀ é verdadeira.
+→ Se o p-valor < nível de significância (ex: 0,05), rejeita-se H₀.
+
+Desvio padrão (σ ou s) → Medida da dispersão dos dados em relação à média.
+→ Quanto maior o desvio, mais espalhados estão os dados.
+
+----------------------------------------
+
+Tipos de erro: 
+Erro Tipo I (α) → Rejeitar H₀ quando ela é verdadeira.
+→ É o falso positivo. Acontece com probabilidade igual ao nível de significância (ex: 5%).
+
+Erro Tipo II (β) → Não rejeitar H₀ quando ela é falsa.
+→ É o falso negativo. Acontece quando o teste falha em detectar uma diferença que realmente existe.
+
+-----------------------------------------
+
+Como encontrar:
+
+Nivel de confianca para encontrar o Intervalo de confianca
+media = np.mean(x)
+desvio = np.std(x, ddof=1)
+n = len(x)
+z = stats.norm.ppf(0.975)  # para 95% de confiança
+erro = z * (desvio / np.sqrt(n))
+ic = (media - erro, media + erro)
+
+#Desvio padrao
+desvio_pop = np.std(x)       # população
+desvio_amostral = np.std(x, ddof=1)  # amostra
