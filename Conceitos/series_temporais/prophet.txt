@@ -1,0 +1,25 @@
+O Prophet, desenvolvido pelo Facebook e atualmente pertencente ao grupo Meta, é um framework que permite realizar a previsão de séries temporais, 
+sendo amplamente utilizado em diversas áreas. Esta biblioteca é capaz de prever séries temporais em áreas como finanças, vendas, marketing, economia, saúde, energia, transporte, logística, meteorologia, 
+telecomunicações e outras.
+
+Uma das vantagens mais significativas do Prophet em relação a outras ferramentas de previsão é sua incrível facilidade de uso. Com apenas algumas linhas de código, é possível ajustar o modelo e obter 
+métricas de desempenho. Isso o torna acessível mesmo para quem não possui experiência avançada em análise de dados.
+
+Outro aspecto que torna o Prophet particularmente amigável para iniciantes é sua excelente interpretabilidade. Os parâmetros do modelo podem ser ajustados intuitivamente, 
+e é fácil compreender como cada componente influencia as previsões. Dessa forma, é possível alcançar resultados altamente explicáveis.
+
+Como o Prophet faz previsões?
+O Prophet opera por meio de um modelo de regressão aditiva que é capaz de lidar com as principais fontes de complexidade em séries temporais: tendências, 
+sazonalidades e efeitos de feriados e eventos especiais. Ele busca modelar a série temporal como a soma desses componentes, onde:
+
+Tendência: É a direção geral dos dados ao longo do tempo. O Prophet pode capturar tendências não lineares de maneira flexível.
+
+Sazonalidade: Refere-se a padrões periódicos que se repetem em intervalos regulares, como sazonalidades semanais, mensais ou anuais. O Prophet é capaz de detectar 
+automaticamente esses padrões e incorporá-los ao modelo.
+
+Efeitos de feriados e eventos: Muitas vezes, certos eventos especiais podem afetar os dados de séries temporais de maneira previsível, como feriados. 
+O Prophet permite a inclusão desses efeitos específicos de eventos no modelo.
+
+O Prophet ajusta esses componentes aos dados de entrada usando um algoritmo de otimização que busca minimizar a diferença entre as previsões do modelo e os dados reais observados.
+
+Por meio de sua abordagem simplificada e eficaz, o Prophet fornece insights valiosos para a tomada de decisões e o planejamento estratégico em múltiplos setores.
