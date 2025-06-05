@@ -1,0 +1,14 @@
+Serie temporal é uma sequencia de pontos ordenados de forma cronologica e tem o intuito de explorar o comportamento passado e tambem prever o comportamento futuro
+
+Existem alguns tipo de aplicaçoes para as series temporais. Entre elas estão:
+Previsao:
+Uma das mais comuns e tem o intuito de prever comportamento futuro,
+para estes casos queremos enxergar um padrao na serie que nos permita saber qual sera a proxima tendencia
+
+Classificacao:
+Existem situacoes onde o objetivo é identificar certos padroes ou formas que aparecem na serie em um determinado momento
+Ex: interpretar um eletrocardiograma, a forma do sinal pode indicar um batimento normal ou um batimento que representa um problema
+
+Clustering:
+É utilizado para agrupar para agrupar dados de acordo com a proximidade que os pontos tem entre si, o que tambem pode ser utilizado com as series temporais
+Ex: barulho do motor de um carro, podemos saber de o que cada barulho representa, porem de primeiro momento é preciso coletar diversos barulhos para depois tentar agrupar
