@@ -1,0 +1,11 @@
+Qualquer valor presente na reta segundo a equacao da reta o resultado é zero (ax+by+c)
+Qualquer ponto acima da reta o retorno da funcao sera positivo e abaixo sera negativo
+Quanto maior o valor da funcao maior a distancia da reta
+
+Oque classifica neste caso é, que com base na reta podemos classificar os dados em dois "grupos" os positivos e negativos a partir da reta
+
+O modelo linear na rede neura:
+Trazendo para o mundo da RN o termo que acompanha o x e y é chamado de peso (weight) e o termo que soma (+c) é chamado de vies(b) pois ele apenas desloca a reta sem alterar caracteristcas da mesma
+
+Generalizando a equacao da reta para atender todas as dimensoes que precisar:
+y = w1*x1 + w2*x2 + b (adicionar w(n)*x(n) de acordo com a quantidade de dimensoes existentes)

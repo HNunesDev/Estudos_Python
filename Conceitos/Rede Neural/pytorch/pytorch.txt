@@ -1,0 +1,31 @@
+O Tensor nada mais é que um array de n dimensoes
+1n - numero
+2n - matriz
+3n - matriz de matriz
+4n - vetor
+Mas nos frameworks todos sao chamados de tensor(0d, 1d, 2d, 3d, nd) a depender da quantidade de dimensao
+
+Se a lista obdece a dimensionalidade de uma matriz entao é possivel transformar em tensor
+para converter ->
+import torch
+tns = torch.Tensor(lista)
+
+O tensor padrao na hora da conversao é o float, mas é possivel especificar durante a conversao
+padrao - float32
+DoubleTensor - float64
+LongTebsir - int64
+Esses sao os mais padroes
+
+Para converter arrays numpy existe a funcao
+torch_from_numpy(lista) -> Ele preserva o formato do array original para o tensor
+
+É possivel também indexar os tensores
+ex: tensor[0, 2] = -10 -> vai alterar o valor do tensor na posicao 0 na terceira coluna
+também é possivel acessar a fatia do tensor: tensor[0:2] -> vai trazer as duas primeiras linha, o valor a direita é exclusivo
+
+Operacoes
+é possivel realizar operacoes com os tensores onde será calculado ponto a ponto ex: posicao 0,1 multiplcando a posicao proporcional a matriz 2
+
+Para consultar o tamanho do tensor pode se utilizar o .shape ou o .size() ambos funcionam da mesma maneira
+
+É possivel também achatar o tamanho do tensor utilizando o .view(n) as dimensoes precisam ser consistesntes
