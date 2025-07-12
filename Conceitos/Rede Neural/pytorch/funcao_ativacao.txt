@@ -1,0 +1,13 @@
+A ideia do perceptron é treinar o neuronio para ativar apenas em determinados momentos a depender do valor de entrada
+Ex:
+Existe um neuronio em nossa cabeça que ativa ao ouvir uma música que gosta (neuronio da boa sensaçao) ele nao será ativado quando batermos o dedos em alguma quina
+
+Em termos pratico o neuronio deve ativar quando ele interpretar que a entrada apresenta o padrao para qual ele foi treinado
+E o papel da *Funcao da ativacao* é definir se o neuronio vai ativar e qual a sua forca de ativacao
+
+Sigmóide é um tipo de funcao de ativacao que faz com que um certo valor da funcao possa assumir outros valores dentro do intervalo de 0 e 1
+
+Funcoes de ativacao mais populares:
+Sigmoid
+tangente hiperbolica -> igual sigmoid mas permite valores negativos
+ReLU -> linear para valores positivos e corta valores negativos

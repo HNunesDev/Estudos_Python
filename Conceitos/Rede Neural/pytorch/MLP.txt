@@ -1,0 +1,8 @@
+A partir daqui ja é considerado uma rede neural por ter mais de um neuronio
+
+hidden ou camadas intermediárias são camadas que nao sao nem de entrada nem de saida
+
+Fluxo de forword que é quando a entrada passa na rede e gera uma saida
+e o backword é o fluxo "para tras" calculo do gradiente e atualizacao dos pesos
+
+O papel da funcao de ativacao nao linear na camada intermediaria é extremamente essencial para aprender funcoes nao lineares
