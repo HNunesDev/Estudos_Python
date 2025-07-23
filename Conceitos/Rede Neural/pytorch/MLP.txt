@@ -1,3 +1,15 @@
+MLP -> multiplas camadas de perceptron, onde utilizamos o mais de um perceptron para tratar
+de problemas nao lineares.
+
+Em um problema de classificaçao o numero de neuronio na camada de saida sera a mesma quantidade
+que a camada de entrada.
+
+A camada oculta pode conter x camadas, e a quantidade de neuronio é sempre multiplo de 2
+
+Os calulos ocorrem na camada oculta, utilizando os valores dos pesos e bias e o valor de entrada
+
+A saida de uma camada oculta é a entrada da proxima camada oculta
+
 A partir daqui ja é considerado uma rede neural por ter mais de um neuronio
 
 hidden ou camadas intermediárias são camadas que nao sao nem de entrada nem de saida
@@ -5,4 +17,39 @@ hidden ou camadas intermediárias são camadas que nao sao nem de entrada nem de
 Fluxo de forword que é quando a entrada passa na rede e gera uma saida
 e o backword é o fluxo "para tras" calculo do gradiente e atualizacao dos pesos
 
+#Aprendizado
+FeedForward = Fluxo comum onde os dados passam para as camadas com seus pesos e retorna uma saida que é comparada com a 
+saida real -> comparado utilizando o loss
+Objetivo do aprendizado neural é diminuir ao maximo o valor de loss
+
+Backpropagation = o resultado dessa primeira passagem dos dados retorna para o inicio para que 
+se atualizem os pesos e bias dos neuronios
+
+Ambos os tipos de aprendizado sao feitos de maneira automatica sempre que uma nova linha de dado
+passa pelo modelo
+
+Learning rate = taxa de aprendizado, utilizado para monitorar o aprendizado
+
+#Funcao de ativacao
 O papel da funcao de ativacao nao linear na camada intermediaria é extremamente essencial para aprender funcoes nao lineares
+
+Normalmente para problemas de classificacao a camada de saida utiliza-se
+funcoes de ativacoes de probabilidade
+
+É interessante que as camadas ocultas possuam a mesma funcao de ativacao, mas nao é regra
+
+As funcoes mais comuns:
+-Sigmoid(sigmoid/logistica)
+Funcao em formato de S e vai de 0 a 1, comportamento nao linear.
+Utilizada na camada de saida ou oculta
+
+-Tanh(tangente hiberbolica)
+
+
+-ReLU(Unicade linear retificada)
+Funcao que ao receber o valor inferior a 0 retorna zero e acima ela retorna o que recebeu
+Utilizada na camada oculta, normalmente se normaliza a entrada entre zero e um para nao ter perda
+
+-Softmax()
+Retorna a probabilidade para a multiclasse para e a somatoria das probabilidades tem que ser 1
+Utiliza na camada de saida
