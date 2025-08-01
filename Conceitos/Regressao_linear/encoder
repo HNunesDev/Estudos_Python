@@ -1,0 +1,2 @@
+#Use OneHotEncoder para variáveis categóricas nominais (sem ordem), para evitar que o modelo interprete números como ordinais.
+#Use LabelEncoder só para variáveis ordinais
